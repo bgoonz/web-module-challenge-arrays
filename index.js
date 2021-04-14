@@ -194,10 +194,40 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength( originalFlavors ) {
-  const total = originalFlavors.reduce( ( acc, value ) => acc + value, 0 );
-  return total / originalFlavors.length;
+// function getAverageWordLength( originalFlavors ) {
+//   const total = originalFlavors.reduce( ( acc, value ) => acc + value, 0 );
+//   return total / originalFlavors.length;
+// }
+
+
+
+function getAverageWordLength(array) {
+  let wordLengthArr = [];
+  let sum = 0;
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i].length;
+    console.log(array[i]);
+    console.log("total:", total);
+    let wordsArr = array[i].split(" ");
+    wordLengthArr.push(wordsArr.length);
+
+    console.log("wordsArr: ", wordsArr);
+  }
+  console.log("wordLengthArr: ", wordLengthArr);
+  for (let i = 0; i < wordLengthArr.length; i++) {
+    sum += wordLengthArr[i];
+  }
+  let avg = sum / array.length;
+  return avg;
 }
+
+getAverageWordLength(newFlavors);
+
+console.log(
+  " getAverageWordLength(newFlavors): ",
+  getAverageWordLength(newFlavors)
+);
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -213,9 +243,21 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors( /*code here*/) {
-  /*code here*/
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
+function getRandomFlavors(arr1, arr2, arr3, arr4) {
+  let combined = [...arr1, ...arr2, ...arr3, ...arr4 ];
+  console.log('combined : ', combined );
+  let randArr = shuffle( combined );
+  console.log('randArr', randArr );
+  return randArr.splice(0,randArr.length-(randArr.length-31));
+}
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
