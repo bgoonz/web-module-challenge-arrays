@@ -140,9 +140,9 @@ Use the removeFlavorByName function below to do the following:
 
     HINT: You can use .splice() for this
 */
-function removeFlavorByName( arr, flavorString ) {
-  arr.splice( arr.indexOf( flavorString ), 1 );
-  return arr;
+function removeFlavorByName ( arr, flavorString ) {
+arr.splice( arr.indexOf( flavorString ), 1 );
+return arr;
 }
 
 console.log( removeFlavorByName( originalFlavors, "Rocky Road" ) );
